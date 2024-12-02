@@ -1,19 +1,19 @@
 import React from "react";
 
-const ToDoList = ({ tasks, onDelete, onUpdate }) => {
+const ToDoList = ({ toDos, onDelete, onUpdate }) => {
   return (
     <div>
-      <h2>ToDoList</h2>
+      <h2>ToDos</h2>
       <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
+        {toDos.map((toDo) => (
+          <li key={toDo.id}>
             <input
               type="checkbox"
-              checked={task.completed}
-              onChange={() => onUpdate(task.id, { completed: !task.completed })}
+              checked={toDo.completed}
+              onChange={() => onUpdate(toDo.id, { completed: !toDo.completed })}
             />
-            <span>{task.title}</span>
-            <button onClick={() => onDelete(task.id)}>Delete</button>
+            <span>{toDo.title}</span>
+            <button onClick={() => onDelete(toDo.id)}>Delete</button>
           </li>
         ))}
       </ul>

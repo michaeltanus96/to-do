@@ -15,7 +15,7 @@ const ToDoForm = ({ onAdd }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Add a new to do item"
+        placeholder="Add a new toDo"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />

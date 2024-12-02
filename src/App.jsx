@@ -4,27 +4,27 @@ import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
 
 const App = () => {
-  const [toDos, settoDos] = useState([]);
+  const [toDos, setToDos] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/toDos").then((res) => settoDos(res.data));
+    axios.get("https://to-do-1-h8ke.onrender.com").then((res) => setToDos(res.data));
   }, []);
 
-  const addtoDo = (title) => {
+  const addToDo = (title) => {
     axios
       .post("http://localhost:5000/toDos", { title })
-      .then((res) => settoDos((prev) => [...prev, res.data]));
+      .then((res) => setToDos((prev) => [...prev, res.data]));
   };
 
-  const deletetoDo = (id) => {
+  const deleteToDo = (id) => {
     axios.delete(`http://localhost:5000/toDos/${id}`).then(() => {
-      settoDos((prev) => prev.filter((toDo) => toDo.id !== id));
+      setToDos((prev) => prev.filter((toDo) => toDo.id !== id));
     });
   };
 
-  const updatetoDo = (id, updates) => {
+  const updateToDo = (id, updates) => {
     axios.put(`http://localhost:5000/toDos/${id}`, updates).then(() => {
-      settoDos((prev) =>
+      setToDos((prev) =>
         prev.map((toDo) => (toDo.id === id ? { ...toDo, ...updates } : toDo))
       );
     });
@@ -32,9 +32,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>toDo Manager</h1>
-      <ToDoForm onAdd={addtoDo} />
-      <ToDoList toDos={toDos} onDelete={deletetoDo} onUpdate={updatetoDo} />
+      <h1>ToDo App</h1>
+      <ToDoForm onAdd={addToDo} />
+      <ToDoList toDos={toDos} onDelete={deleteToDo} onUpdate={updateToDo} />
     </div>
   );
 };
