@@ -11,9 +11,10 @@ const ToDoList = ({ toDos, onDelete, onUpdate }) => {
               type="checkbox"
               checked={toDo.completed}
               onChange={() => onUpdate(toDo.id, { completed: !toDo.completed })}
+              data-cy='ToDos'
             />
             <span>{toDo.title}</span>
-            <button onClick={() => onDelete(toDo.id)}>Delete</button>
+            <button onClick={() => onDelete(toDo.id)} data-cy='Delete'>Delete</button>
           </li>
         ))}
       </ul>

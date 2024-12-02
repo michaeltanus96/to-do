@@ -18,8 +18,9 @@ const ToDoForm = ({ onAdd }) => {
         placeholder="Add a new To Do"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        data-cy="ToDoInput"
       />
-      <button type="submit">Add</button>
+      <button type="submit" data-cy="Submit">Add</button>
     </form>
   );
 };
