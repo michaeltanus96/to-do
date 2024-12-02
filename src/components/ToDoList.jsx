@@ -3,6 +3,7 @@ import React from "react";
 const ToDoList = ({ toDos, onDelete, onUpdate }) => {
   return (
     <div>
+    data-cy="ToDoList"
       <h2>To Dos</h2>
       <ul>
         {toDos.map((toDo) => (
@@ -11,7 +12,7 @@ const ToDoList = ({ toDos, onDelete, onUpdate }) => {
               type="checkbox"
               checked={toDo.completed}
               onChange={() => onUpdate(toDo.id, { completed: !toDo.completed })}
-              data-cy='ToDos'
+              data-cy='Checkbox'
             />
             <span>{toDo.title}</span>
             <button onClick={() => onDelete(toDo.id)} data-cy='Delete'>Delete</button>

@@ -19,9 +19,9 @@ describe('To-Do List Application', () => {
 
   it('should allow deleting a to-do item', () => {
     const newTodo = 'Take out the trash';
-    cy.get('input').should('have.attr', 'placeholder', 'Add a new To Do').type(newTodo);
-    cy.contains('button', 'Add').click();
-    cy.contains('button', newTodo).click()
+    cy.get('[data-cy=ToDoInput]').type(newTodo)
+    cy.get('[data-cy=Submit').click();
+    cy.get('[data-cy=Delete').click();
     cy.contains(newTodo).should('not.exist');
   });
 });
