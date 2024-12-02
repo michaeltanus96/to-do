@@ -6,7 +6,7 @@ const ToDoList = ({ toDos, onDelete, onUpdate }) => {
       <h2>To Dos</h2>
       <ul>
         {toDos.map((toDo) => (
-          <li key={toDo.id}>
+          <li key={toDo.id} data-cy={`toDo-item-${toDo.id}`}>
             <input
               type="checkbox"
               checked={toDo.completed}

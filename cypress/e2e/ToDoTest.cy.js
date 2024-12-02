@@ -21,7 +21,9 @@ describe('To-Do List Application', () => {
     const newTodo = 'Take out the trash';
     cy.get('[data-cy=ToDoInput]').type(newTodo)
     cy.get('[data-cy=Submit').click();
-    cy.get('[data-cy=Delete').click();
+    ccy.get('[data-cy^="toDo-item-"]').contains("Test ToDo").each(($el) => {
+      cy.wrap($el).parent().find('[data-cy="Delete"]').click();
+    });
     cy.contains(newTodo).should('not.exist');
   });
 });
