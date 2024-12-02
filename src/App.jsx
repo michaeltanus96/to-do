@@ -7,7 +7,7 @@ const App = () => {
   const [toDos, setToDos] = useState([]);
 
   useEffect(() => {
-    axios.get("https://to-do-1-h8ke.onrender.com").then((res) => setToDos(res.data));
+    axios.get("http://localhost:5000/toDos").then((res) => setToDos(res.data));
   }, []);
 
   const addToDo = (title) => {
