@@ -3,7 +3,6 @@ import React from "react";
 const ToDoList = ({ toDos, onDelete, onUpdate }) => {
   return (
     <div>
-    data-cy="ToDoList"
       <h2>To Dos</h2>
       <ul>
         {toDos.map((toDo) => (
