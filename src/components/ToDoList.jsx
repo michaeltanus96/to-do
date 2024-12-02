@@ -3,7 +3,7 @@ import React from "react";
 const ToDoList = ({ toDos, onDelete, onUpdate }) => {
   return (
     <div>
-      <h2>ToDos</h2>
+      <h2>To Dos</h2>
       <ul>
         {toDos.map((toDo) => (
           <li key={toDo.id}>
